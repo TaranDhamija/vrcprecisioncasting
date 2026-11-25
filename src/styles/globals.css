@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-palladian: #eee9df;
+  --color-oatmeal: #c9c1b1;
+  --color-abyssal: #1b2632;
+  --color-fantastic: #2c3b4d;
+  --color-flame: #ffb162;
+  --color-truffle: #a35139;
+  --header-h: 76px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-palladian font-sans text-abyssal antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-extrabold tracking-tight;
+    line-height: 1.05;
+  }
+  ::selection {
+    background: var(--color-flame);
+    color: var(--color-abyssal);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-truffle);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-flame);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  .tech-label {
+    @apply font-mono text-xs uppercase tracking-technical;
+  }
+  .display-xl {
+    font-size: clamp(2.5rem, 6.4vw, 5.75rem);
+  }
+  .display-lg {
+    font-size: clamp(2rem, 4.4vw, 3.75rem);
+  }
+  .display-md {
+    font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  }
+  .blueprint-grid {
+    background-image:
+      linear-gradient(rgba(201, 193, 177, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 193, 177, 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .blueprint-grid-dark {
+    background-image:
+      linear-gradient(rgba(238, 233, 223, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(238, 233, 223, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .image-ph {
+    background:
+      repeating-linear-gradient(
+        45deg,
+        rgba(27, 38, 50, 0.05) 0 12px,
+        rgba(27, 38, 50, 0.1) 12px 24px
+      ),
+      var(--color-oatmeal);
+  }
+}
